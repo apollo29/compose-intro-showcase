@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "JetTapTarget"
-include ':app'
-include ':showcase'
+
+rootProject.name = "Compose Intro Showcase"
+include("showcase", "app")
+ 

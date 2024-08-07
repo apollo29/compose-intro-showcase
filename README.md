@@ -19,7 +19,7 @@ Available on [Maven Central](https://search.maven.org/artifact/com.canopas.intro
 
 Add the dependency
 ```gradle
-    implementation 'com.canopas.intro-showcase-view:introshowcaseview:2.0.1'
+    implementation("com.github.apollo29:compose-intro-showcase:[latest-release]")
 
 ```
 # Documentation

@@ -16,20 +16,22 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Button
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.FloatingActionButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,7 +65,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier
                         .fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     ShowcaseSample()
                 }
@@ -72,6 +74,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShowcaseSample() {
     var showAppIntro by remember {
@@ -94,8 +97,8 @@ fun ShowcaseSample() {
             topBar = {
                 TopAppBar(
                     title = { },
-                    backgroundColor = Color.Transparent,
-                    elevation = 0.dp,
+//                    backgroundColor = Color.Transparent,
+//                    elevation = 0.dp,
                     navigationIcon = {
                         BackButton(introShowcaseState)
                     },
@@ -185,7 +188,7 @@ fun IntroShowcaseScope.FloatingMailButton() {
                 }
             }
         ),
-        backgroundColor = ThemeColor,
+        //backgroundColor = ThemeColor,
         contentColor = Color.White,
         elevation = FloatingActionButtonDefaults.elevation(6.dp)
     ) {
@@ -243,7 +246,7 @@ fun IntroShowcaseScope.BackButton(introShowcaseState: IntroShowcaseState) {
             },
         )
     ) {
-        Icon(Icons.Filled.ArrowBack, contentDescription = "Search")
+        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Search")
     }
 }
 
