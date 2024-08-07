@@ -44,12 +44,14 @@ class IntroShowcaseScope(
     fun Modifier.introShowCaseTarget(
         index: Int,
         style: ShowcaseStyle = ShowcaseStyle.Default,
+        onShowCasePopupPreComplete: (() -> Unit)? = null,
         onShowCasePopupComplete: (() -> Unit)? = null,
         content: @Composable BoxScope.() -> Unit,
     ): Modifier = introShowcaseTarget(
         state = state,
         index = index,
         style = style,
+        onShowCasePopupPreComplete = onShowCasePopupPreComplete,
         onShowCasePopupComplete = onShowCasePopupComplete,
         content = content,
     )

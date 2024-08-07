@@ -37,6 +37,7 @@ internal fun Modifier.introShowcaseTarget(
     state: IntroShowcaseState,
     index: Int,
     style: ShowcaseStyle = ShowcaseStyle.Default,
+    onShowCasePopupPreComplete: (() -> Unit)? = null,
     onShowCasePopupComplete: (() -> Unit)? = null,
     content: @Composable BoxScope.() -> Unit,
 ): Modifier = onGloballyPositioned { coordinates ->
@@ -44,6 +45,7 @@ internal fun Modifier.introShowcaseTarget(
         index = index,
         coordinates = coordinates,
         style = style,
+        onShowCasePopupPreComplete = onShowCasePopupPreComplete,
         onShowCasePopupComplete = onShowCasePopupComplete,
         content = content
     )

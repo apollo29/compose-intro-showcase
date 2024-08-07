@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import com.canopas.lib.showcase.data.RevealShape
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.logging.Level
+import java.util.logging.Logger
 import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min
@@ -51,7 +53,7 @@ import kotlin.math.sqrt
 fun ShowcasePopup(
     state: IntroShowcaseState,
     dismissOnClickOutside: Boolean,
-    onShowCaseCompleted: () -> Unit,
+    onShowCaseCompleted: () -> Unit
 ) {
     state.currentTarget?.let {
         ShowcaseWindow {
@@ -59,13 +61,18 @@ fun ShowcasePopup(
                 target = it,
                 dismissOnClickOutside = dismissOnClickOutside
             ) {
+                it.onShowCasePopupPreComplete?.let {
+                    it()
+                }
+
                 state.currentTargetIndex++
+
+                it.onShowCasePopupComplete?.let {
+                    it()
+                }
+
                 if (state.currentTarget == null) {
                     onShowCaseCompleted()
-                } else {
-                    it.onShowCasePopupComplete?.let {
-                        it()
-                    }
                 }
             }
         }
@@ -353,6 +360,7 @@ data class IntroShowcaseTargets(
     val index: Int,
     val coordinates: LayoutCoordinates,
     val style: ShowcaseStyle = ShowcaseStyle.Default,
+    val onShowCasePopupPreComplete: (() -> Unit)? = null,
     val onShowCasePopupComplete: (() -> Unit)? = null,
     val content: @Composable BoxScope.() -> Unit
 )
