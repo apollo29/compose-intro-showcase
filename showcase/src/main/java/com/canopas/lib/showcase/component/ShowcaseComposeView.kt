@@ -25,6 +25,8 @@ import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.findViewTreeSavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import java.util.UUID
+import java.util.logging.Level
+import java.util.logging.Logger
 
 @Composable
 fun ShowcaseWindow(content: @Composable () -> Unit) {

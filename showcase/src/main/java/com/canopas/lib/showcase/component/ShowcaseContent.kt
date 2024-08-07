@@ -62,6 +62,10 @@ fun ShowcasePopup(
                 state.currentTargetIndex++
                 if (state.currentTarget == null) {
                     onShowCaseCompleted()
+                } else {
+                    it.onShowCasePopupComplete?.let {
+                        it()
+                    }
                 }
             }
         }
@@ -349,6 +353,7 @@ data class IntroShowcaseTargets(
     val index: Int,
     val coordinates: LayoutCoordinates,
     val style: ShowcaseStyle = ShowcaseStyle.Default,
+    val onShowCasePopupComplete: (() -> Unit)? = null,
     val content: @Composable BoxScope.() -> Unit
 )
 
