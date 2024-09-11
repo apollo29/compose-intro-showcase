@@ -56,23 +56,25 @@ fun ShowcasePopup(
     onShowCaseCompleted: () -> Unit
 ) {
     state.currentTarget?.let {
-        ShowcaseWindow {
-            ShowcaseContent(
-                target = it,
-                dismissOnClickOutside = dismissOnClickOutside
-            ) {
-                it.onShowCasePopupPreComplete?.let {
-                    it()
-                }
+        if (it.coordinates.isAttached) {
+            ShowcaseWindow {
+                ShowcaseContent(
+                    target = it,
+                    dismissOnClickOutside = dismissOnClickOutside
+                ) {
+                    it.onShowCasePopupPreComplete?.let {
+                        it()
+                    }
 
-                state.currentTargetIndex++
+                    state.currentTargetIndex++
 
-                it.onShowCasePopupComplete?.let {
-                    it()
-                }
+                    it.onShowCasePopupComplete?.let {
+                        it()
+                    }
 
-                if (state.currentTarget == null) {
-                    onShowCaseCompleted()
+                    if (state.currentTarget == null) {
+                        onShowCaseCompleted()
+                    }
                 }
             }
         }
