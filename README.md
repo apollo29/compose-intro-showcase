@@ -1,8 +1,5 @@
-<p align="center"> <a href="https://canopas.com/contact"><img width="100%" alt="cta_banner2" src="https://github.com/canopas/compose-intro-showcase/assets/74301808/1b111132-a7bf-4f23-ac40-d4a6f362f9d8"></a></p>
-
 # Intro Showcase View
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Intro--showcase--view-green.svg?style=flat )]( https://android-arsenal.com/details/1/8387 )
-<img alt="Badge" height="20px" src="https://androidweekly.net/issues/issue-506/badge"> <img alt="Badge" height="20px" src="https://androidweekly.net/issues/issue-513/badge">
+[![](https://jitpack.io/v/apollo29/compose-intro-showcase.svg)](https://jitpack.io/#apollo29/compose-intro-showcase)
 
 
 <img src="https://github.com/canopas/Intro-showcase-view/blob/master/docs/assets/4-%20intro%20showcase.jpg" />
